@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>person</title>
+<style>
+	.table
+	{	
+		border: 1px solid black;
+		
+	}
+</style>
+
+</head>
+<body>
+	<form name="RegForm" method="POST">
+<table border="1" width="70%">
+	 <caption>Person Profile</caption>
+	<tr>
+		<td>Name</td>
+		<td><input type="text" name="name" id="name" onblur="namefc()"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Email</td>
+		<td><input type="text" name="Email" id="email" onblur="emailfc()"></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Gender</td>
+		<td>
+			<input type="radio" name="gender" value="male" id="male" onblur="genderfc()">Male
+			<input type="radio" name="gender" value="female" id="female" onblur="genderfc()">Female
+			<input type="radio" name="gender" value="other" id="other" onblur="genderfc()">Other
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Date of Birth</td>
+		<td>
+			<input type="number" name="dob" id="day" onblur="dobfc()" style="width: 35px;">/
+			<input type="number" name="dob"  id ="month" onblur="dobfc()" style="width: 35px;">/
+			<input type="number" name="dob" id="year" onblur="dobfc()" style="width: 45px;"><i>(dd/mm/yy)</i>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Blood Group</td>
+		<td>
+			<select name="Blood" id="blood" onblur="bloodfc()">
+				  <option value="A+" id="a">A+<option>
+				  <option value="B+" id="b">B+<option>
+				  <option value="O+" id="o">O+<option>
+	`		</select>
+  		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Degree</td>
+		<td>
+			<input type="checkbox" name="Degree" value="" id="ssc" onblur="degreefc()">SSC<br>
+			<input type="checkbox" name="Degree" value="" id="hsc" onblur="degreefc()">HSC<br>
+			<input type="checkbox" name="Degree" value="" id="bsc" onblur="degreefc()">BSc.<br>
+			<input type="checkbox" name="Degree" value="" id="msc" onblur="degreefc()">MSc.<br>
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>Photo</td>
+		<td colspan="2">  <input type="file" accept="image/*" name="Photo" id="photo" onblur="photofc()"></td>
+		
+	</tr>
+	<tr>
+
+		<td colspan="3" align="right">
+			<button type="button" value="Submit">Submit</button>
+			<button type="Reset" value="Reset">Reset</button>
+		</td>
+	</tr>
+</table>
+</form>
+
+<script >
+
+function namefc()
+		{
+			var name = document.getElementById("name");
+			if (name.value == "") 
+			{
+				window.alert("Write Your Name !!!");
+				name.focus();
+				return false;
+			}
+			else if (/[^a-zA-Z\-\.]/.test( "name" )) {
+				alert("Write Your Name Properly !!!");
+				name.focus();
+				return false;
+
+			}
+			else {
+				return true;
+			}
+
+		}
+
+function emailfc()
+{
+	var email = document.getElementById("email");		
+	if (email.value == "")								 
+	{ 
+			alert("Please Enter your Email !!!"); 
+		 	email.focus();
+			return false; 
+	}
+	else
+	{
+		return true;
+	}
+
+
+}
+
+function genderfc(){
+
+
+		
+		var male = document.getElementById("male").checked;
+		var female = document.getElementById("female").checked;
+		var other = document.getElementById("other").checked;
+		if (male == false && female == false && other == false) {
+			alert("Choose Gender !!!");
+			gender.focus();
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	function bloodfc(){
+		var blood = document.getElementById("blood");
+
+		if (blood.selectedIndex < 1)				 
+	{ 
+		alert("Please Select Your Blood Group !!!"); 
+		blood.focus();
+		return false; 
+	}
+	else
+	{
+		return true;
+	}
+}
+
+	function degreefc(){
+
+
+		
+		var ssc = document.getElementById("ssc").checked;
+		var hsc = document.getElementById("hsc").checked;
+		var bsc = document.getElementById("bsc").checked;
+		var msc = document.getElementById("msc").checked;
+
+		if (ssc == false && hsc == false && bsc == false || msc == false) {
+			alert("Choose Your Blood Group !!!");
+			blood.focus();
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	function dobfc()
+	{
+		var day = document.getElementById("day");
+		var month = document.getElementById("month");
+		var year = document.getElementById("year");
+		if (day.value == "" || month.value == "" || year.value == "") {
+			alert("Select Date of Birth !!!");
+			dob.focus();
+		}
+
+		else
+		{
+			return true;
+		}
+	}
+
+	function photofc()
+	{
+		if (!photo.value) {
+		alert("upload a photo");
+		photo.focus();
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+
+	}
+
+</script>
+</body>
+</html>
