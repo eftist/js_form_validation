@@ -82,80 +82,81 @@
 <script >
 
 function namefc()
+{
+		var name = document.getElementById("name");
+
+		var namev = name.value;
+		var nameck = namev.charAt(0);
+
+
+		if ((nameck >= 'a' && nameck <= 'z') || (nameck >= 'A' && nameck <= 'Z'))
 		{
-			var name = document.getElementById("name");
-			if (name.value == "") 
-			{
-				window.alert("Write Your Name !!!");
-				name.focus();
-				return false;
+			if (false) {
+				alert("Write name Correctly !");
+			
 			}
-			else if (/[^a-zA-Z\-\.]/.test( "name" )) {
-				alert("Write Your Name Properly !!!");
-				name.focus();
-				return false;
-
-			}
-			else {
-				return true;
-			}
-
 		}
+		else if (name.value == "") 
+		{
+			alert("Write Your Name !!!");
+		}
+
+
+		 else if((name.value).indexOf(' ') < 0)
+		{
+			alert("Write Your Name Correctly !");
+			
+		}
+		
+}
 
 function emailfc()
 {
-	var email = document.getElementById("email");		
-	if (email.value == "")								 
+
+	var email = document.getElementById("email").value;
+	
+	
+
+	if (email == "")								 
 	{ 
 			alert("Please Enter your Email !!!"); 
-		 	email.focus();
-			return false; 
-	}
-	else
-	{
-		return true;
 	}
 
+	 else if (email.indexOf('@') < 0 ) 
+	 {
 
+        alert("Please Write Email @ Properly !!!")
+    } 
+
+     else if (email.indexOf('.') < 0 ) 
+	 {
+
+        alert("Please Write Email . Properly !!!")
+    } 
+   
 }
 
+
 function genderfc(){
-
-
-		
 		var male = document.getElementById("male").checked;
 		var female = document.getElementById("female").checked;
 		var other = document.getElementById("other").checked;
 		if (male == false && female == false && other == false) {
 			alert("Choose Gender !!!");
-			gender.focus();
-			return false;
 		}
-		else
-		{
-			return true;
-		}
-	}
+}
 
-	function bloodfc(){
+function bloodfc(){
 		var blood = document.getElementById("blood");
 
 		if (blood.selectedIndex < 1)				 
 	{ 
-		alert("Please Select Your Blood Group !!!"); 
-		blood.focus();
-		return false; 
+		alert("Please Select Your Blood Group !!!"); 	
 	}
-	else
-	{
-		return true;
-	}
+	
 }
 
 	function degreefc(){
-
-
-		
 		var ssc = document.getElementById("ssc").checked;
 		var hsc = document.getElementById("hsc").checked;
 		var bsc = document.getElementById("bsc").checked;
@@ -163,44 +164,28 @@ function genderfc(){
 
 		if (ssc == false && hsc == false && bsc == false || msc == false) {
 			alert("Choose Your Blood Group !!!");
-			blood.focus();
-			return false;
+			blood.focus();	
 		}
-		else
-		{
-			return true;
-		}
+		
 	}
 
-	function dobfc()
-	{
-		var day = document.getElementById("day");
-		var month = document.getElementById("month");
-		var year = document.getElementById("year");
-		if (day.value == "" || month.value == "" || year.value == "") {
-			alert("Select Date of Birth !!!");
-			dob.focus();
-		}
+function dobfc()
+{
+	var day = document.getElementById("day");
+	var month = document.getElementById("month");
+	var year = document.getElementById("year");
+	if (day.value == "" || month.value == "" || year.value == "") {
+		alert("Select Date of Birth !!!");	
+	}	
+}
 
-		else
-		{
-			return true;
-		}
-	}
-
-	function photofc()
-	{
+function photofc()
+{
 		if (!photo.value) {
 		alert("upload a photo");
-		photo.focus();
-		return false;
+		
 	}
-	else
-	{
-		return true;
-	}
-
-	}
+}
 
 </script>
 </body>
